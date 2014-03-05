@@ -1,0 +1,39 @@
+﻿
+<link rel="import" href="../core-doc-viewer/core-doc-viewer.html">
+
+<polymer-element name="core-home-page">
+
+  <template>
+
+    <link rel="stylesheet" href="core-component-page.css">
+
+    <h2>{{moduleName}}</h2>
+
+    <a class="choiceC" target="_blank" href="../{{moduleName}}/demo.html">demo</a>
+    <a class="choiceB" target="_blank" href="../../designer/?element={{moduleName}}">sandbox</a>
+    <a class="choiceD" target="_blank" href="fail.html">install</a>
+
+    <core-doc-viewer url="{{moduleName}}.html"></core-doc-viewer>
+
+  </template>
+
+  <script>
+
+    Polymer('core-home-page', {
+      ready: function() {
+        var path = location.pathname.split('/');
+        var name = path.pop() || path.pop();
+        if (name.indexOf('.html') >= 0) {
+          name = path.pop();
+        }
+        var title = document.querySelector('title');
+        if (title) {
+          title.textContent = name;
+        }
+        this.moduleName = name;
+      }
+    });
+
+  </script>
+
+</polymer-element>
