@@ -10,11 +10,12 @@
     }
     [noviewer] [ifnoviewer] {
       display: block;
+      padding: 8px;
     }
     [detector], [ifnoviewer], [noviewer] [ifviewer] {
       display: none;
     }
-    [ifviewer], [ifnoviewer] {
+    .fill {
       position: absolute;
       top: 0;
       right: 0;
@@ -27,37 +28,33 @@
       width: 100%;
       height: 100%;
     }
-    span {
+    #remote {
       position: absolute;
       top: 0;
       right: 0;
     }
   </style>
   <script src="../platform/platform.js"></script>
-  <link rel="import" href="../polymer-home-page/polymer-home-page.html">
+  <link rel="import" href="../core-component-page/core-component-page.html">
 </head>
-<body>
-  <img detector src="../polymer-home-page/bowager-logo.png" onerror="noviewer()">
-  <polymer-home-page ifviewer></polymer-home-page>
-  <div ifnoviewer>
-    <span>[remote]</span>
-    <iframe></iframe>
+
+<body unresolved>
+
+  <img detector src="../core-component-page/bowager-logo.png" onerror="noviewer()">
+
+  <div ifnoviewer class="fill">
+    <h2>Please install the 'core-component-page` component.</h2>
+    <code>bower install Polymer/core-component-page</code>
   </div>
-  <!-- -->
+
+  <core-component-page ifviewer class="fill"></core-component-page>
+
   <script>
-    var remoteDocs = 'http://turbogadgetry.com/bowertopia/components/';
-    // if no local info viewer, load it remotely
+    // if core-component-page isn't install, notify the user
     function noviewer() {
       document.body.setAttribute('noviewer', '');
-      var path = location.pathname.split('/');
-      var module = path.pop() || path.pop();
-      document.querySelector('iframe').src = remoteDocs + module;
-    }
-    // for testing only
-    var opts = window.location.search;
-    if (opts.indexOf('noviewer') >= 0) {
-      noviewer();
     }
   </script>
+
 </body>
 </html>

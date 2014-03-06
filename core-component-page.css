@@ -28,53 +28,9 @@ h2 {
   display: inline-block;
   padding: 4px 12px 5px 12px;
   margin: 4px 0;
-  /*padding: 0.35em 1em;
-  margin: 0.3em 0;*/
 }
 
-/*.choiceB, .choiceC, .choiceD {
-  font-size: 0.8em;
-  display: inline-block;
-  white-space: nowrap;
-  padding: 2px 16px;
-  vertical-align: middle;
-  margin-top: 3px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #eee;
-  border-radius: 23px;
-  text-decoration: none;
-}
-
-.choiceB {
-  background-color: #BF8A30;
-}
-
-.choiceB:hover {
-  background-color: #C7F83E;
-  color: #222;
-}
-
-.choiceC {
-  background-color: #284B7E;
-}
-
-.choiceC:hover {
-  background-color: #C7F83E;
-  color: #222;
-}
-
-.choiceD {
-  background-color: #4B287E;
-}
-
-.choiceD:hover {
-  background-color: #F8C73E;
-  color: #222;
-}
-*/
-
-polymer-doc-viewer {
+core-doc-viewer {
   display: block;
   position: absolute;
   top: 50px;
