@@ -63,7 +63,7 @@ to reconstruct `core-component-page\core-component-page.html` via vulcanize.
 
       moduleNameChanged: function() {
         document.title = this.moduleName;
-        this.url = !this.sources && this.moduleName ? this.moduleName + '.html' : '';
+        this.url = !this.sources.length && this.moduleName ? this.moduleName + '.html' : '';
       },
 
       findModuleName: function() {
