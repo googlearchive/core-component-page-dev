@@ -35,7 +35,7 @@ to reconstruct `core-component-page\core-component-page.html` via vulcanize.
 
 -->
 
-<polymer-element name="core-component-page">
+<polymer-element name="core-component-page" attributes="moduleName sources">
 
   <template>
 
@@ -45,7 +45,7 @@ to reconstruct `core-component-page\core-component-page.html` via vulcanize.
 
     <a class="choiceC" target="_blank" href="../{{moduleName}}/demo.html">demo</a>
 
-    <core-doc-viewer url="{{moduleName}}.html"></core-doc-viewer>
+    <core-doc-viewer url="{{url}}" sources="{{sources}}"></core-doc-viewer>
 
   </template>
 
@@ -53,14 +53,26 @@ to reconstruct `core-component-page\core-component-page.html` via vulcanize.
 
     Polymer('core-component-page', {
 
+      moduleName: '',
+      // TODO(sjmiles): needed this to force Object type for deserialization
+      sources: [],
+
       ready: function() {
+        this.moduleName = this.moduleName || this.findModuleName();
+      },
+
+      moduleNameChanged: function() {
+        document.title = this.moduleName;
+        this.url = !this.sources && this.moduleName ? this.moduleName + '.html' : '';
+      },
+
+      findModuleName: function() {
         var path = location.pathname.split('/');
         var name = path.pop() || path.pop();
         if (name.indexOf('.html') >= 0) {
           name = path.pop();
         }
-        document.title = name;
-        this.moduleName = name;
+        return name || '';
       }
 
     });
