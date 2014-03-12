@@ -1,4 +1,5 @@
 core-component-page-dev
 =======================
 
-Source code for core-component-page builds
+See //polymer.github.io/core-component-page-dev
+
