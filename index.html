@@ -9,51 +9,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <title>polymer api</title>
-  <style>
-    html, body {
-      font-family: Arial, sans-serif;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    [noviewer] [ifnoviewer] {
-      display: block;
-      padding: 8px;
-    }
-    [detector], [ifnoviewer], [noviewer] [ifviewer] {
-      display: none;
-    }
-    .fill {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  </style>
 
   <script src="../platform/platform.js"></script>
   <link rel="import" href="../core-component-page/core-component-page.html">
 
 </head>
-
 <body unresolved>
 
-  <img detector src="../core-component-page/bowager-logo.png" onerror="noviewer()">
-
-  <div ifnoviewer class="fill">
-    <h2>Please install the 'core-component-page` component.</h2>
-    <code>bower install Polymer/core-component-page</code>
-  </div>
-
-  <core-component-page ifviewer class="fill"></core-component-page>
-
-  <script>
-    // if core-component-page isn't install, notify the user
-    function noviewer() {
-      document.body.setAttribute('noviewer', '');
-    }
-  </script>
+  <core-component-page></core-component-page>
 
 </body>
 </html>
