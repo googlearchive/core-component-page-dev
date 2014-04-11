@@ -8,8 +8,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 :host {
-  position: relative;
-  display: block;
   font-family: Arial, sans-serif;
   height: 100vh;
 }
@@ -39,12 +37,7 @@ h2 {
   margin: 4px 0;
 }
 
-core-doc-viewer {
-  display: block;
-  position: absolute;
-  top: 50px;
-  right: 0;
-  bottom: 0px;
-  left: 0;
-  border: 1px solid silver;
+core-toolbar {
+  background-color: #E91E63;
+  color: white;
 }
