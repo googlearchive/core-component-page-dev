@@ -21,10 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!--
 
-Implements the default home-page for Polymer components.
+Implements the default landing page for Polymer components.
 
-`<core-component-page>` can render a default information page for any component.
-Polymer components use this component in `index.html` to provide a common landing page.
+`<core-component-page>` can render an information page for any component.
+Polymer components use this component in `index.html` to provide the standard landing page.
 
 `<core-component-page>` is _vulcanized_, which means it contains all it's dependencies baked in.
 Therefore, this component is intended to be used only by itself in a page.
@@ -47,7 +47,7 @@ to reconstruct `core-component-page\core-component-page.html` via vulcanize.
 
     <core-layout flow="v"></core-layout>
 
-    <core-toolbar>
+    <core-toolbar class="appbar">
       <span>{{moduleName}}</span>
       <a class="choiceC" target="_blank" href="../{{moduleName}}/demo.html">demo</a>
     </core-toolbar>

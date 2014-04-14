@@ -37,7 +37,7 @@ h2 {
   margin: 4px 0;
 }
 
-core-toolbar {
+.appbar {
   background-color: #E91E63;
   color: white;
 }
