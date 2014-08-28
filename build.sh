@@ -9,4 +9,4 @@
 # subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 #
 
-vulcanize core-component-page.html -o ../core-component-page/core-component-page.html --Xstrip --inline --config vulcanize.json
+vulcanize core-component-page.html -o ../core-component-page/core-component-page.html --strip --inline --config vulcanize.json
