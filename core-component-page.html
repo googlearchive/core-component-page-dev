@@ -15,7 +15,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </style>
 
-<link rel="import" href="../core-layout/core-layout.html">
 <link rel="import" href="../core-doc-viewer/core-doc-viewer.html">
 <link rel="import" href="../core-toolbar/core-toolbar.html">
 
@@ -30,35 +29,35 @@ Polymer components use this component in `index.html` to provide the standard la
 Therefore, this component is intended to be used only by itself in a page.
 
 This *-dev package contains the raw source and the dependency manifest necessary
-to reconstruct `core-component-page\core-component-page.html` via vulcanize.
+to reconstruct `core-component-page/core-component-page.html` via vulcanize. To vulcanize,
+check out the core-component-page repo alongside this repo and run build.sh. This will
+drop the vulcanize output into `core-component-page/core-component-page.html`.
 
-`<core-component-page>` will set the page title automatically.
+Note: `<core-component-page>` sets the page title automatically.
 
 @group Polymer Core Elements
 @element core-component-page
 
 -->
 
-<polymer-element name="core-component-page" attributes="moduleName sources">
+<polymer-element name="core-component-page" attributes="moduleName sources" layout vertical>
 
   <template>
 
     <link rel="stylesheet" href="core-component-page.css">
-
-    <core-layout vertical></core-layout>
 
     <core-toolbar class="appbar">
       <span>{{moduleName}}</span>
       <a class="choiceC" target="_blank" href="../{{moduleName}}/demo.html">demo</a>
     </core-toolbar>
 
-    <core-doc-viewer core-flex url="{{url}}" sources="{{sources}}"></core-doc-viewer>
+    <core-doc-viewer flex url="{{url}}" sources="{{sources}}"></core-doc-viewer>
 
   </template>
 
   <script>
 
-    Polymer('core-component-page', {
+    Polymer({
 
       moduleName: '',
       // TODO(sjmiles): needed this to force Object type for deserialization
