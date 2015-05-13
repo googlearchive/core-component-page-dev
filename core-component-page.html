@@ -51,7 +51,7 @@ Note: `<core-component-page>` sets the page title automatically.
       <a class="choiceC" target="_blank" href="../{{moduleName}}/demo.html">demo</a>
     </core-toolbar>
 
-    <core-doc-viewer flex url="{{url}}" sources="{{sources}}"></core-doc-viewer>
+    <core-doc-viewer flex sources="{{sources}}"></core-doc-viewer>
 
   </template>
 
@@ -69,7 +69,10 @@ Note: `<core-component-page>` sets the page title automatically.
 
       moduleNameChanged: function() {
         document.title = this.moduleName;
-        this.url = !this.sources.length && this.moduleName ? this.moduleName + '.html' : '';
+
+        if (!this.sources.length && this.moduleName) {
+          this.sources.push(this.moduleName + '.html');
+        }
       },
 
       findModuleName: function() {
