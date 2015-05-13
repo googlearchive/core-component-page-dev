@@ -40,7 +40,7 @@ Note: `<core-component-page>` sets the page title automatically.
 
 -->
 
-<polymer-element name="core-component-page" attributes="moduleName sources" layout vertical>
+<polymer-element name="core-component-page" attributes="js merge moduleName sources" layout vertical>
 
   <template>
 
@@ -51,7 +51,7 @@ Note: `<core-component-page>` sets the page title automatically.
       <a class="choiceC" target="_blank" href="../{{moduleName}}/demo.html">demo</a>
     </core-toolbar>
 
-    <core-doc-viewer flex url="{{url}}" sources="{{sources}}"></core-doc-viewer>
+    <core-doc-viewer flex merge?="{{merge}}" sources="{{sources}}"></core-doc-viewer>
 
   </template>
 
@@ -59,6 +59,8 @@ Note: `<core-component-page>` sets the page title automatically.
 
     Polymer({
 
+      js: false,
+      merge: false,
       moduleName: '',
       // TODO(sjmiles): needed this to force Object type for deserialization
       sources: [],
@@ -68,8 +70,25 @@ Note: `<core-component-page>` sets the page title automatically.
       },
 
       moduleNameChanged: function() {
-        document.title = this.moduleName;
-        this.url = !this.sources.length && this.moduleName ? this.moduleName + '.html' : '';
+        var
+          moduleName = document.title = this.moduleName,
+          sources = this.sources,
+          regex = /\.html?$/
+        ;
+
+        if (!sources.length && moduleName) {
+          sources.push(moduleName + '.html');
+        }
+
+        if (this.js) {
+          sources.forEach(function(source) {
+            var js;
+
+            if (regex.test(source) && sources.indexOf(js = source.replace(regex, '.js')) == -1) {
+              sources.push(js);
+            }
+          });
+        }
       },
 
       findModuleName: function() {
